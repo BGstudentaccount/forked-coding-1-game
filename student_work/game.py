@@ -25,10 +25,11 @@ game_data = {
     'snake_head': "\U0001F432",
     'snake_body': "\U0001274E",
     'apple': "\U0001F34E",
+    'obstacle': "\U0001FAA8",
     ######Jackson code below
     # 'turtle': "\U0001F422",
     # 'eagle_icon': "\U0001F985",
-    # 'obstacle': "\U0001FAA8 ",
+    # 'obstacle': "\U0001FAA8",
     # 'leaf': "\U0001F343",
     'empty': "  "
 }
@@ -48,9 +49,9 @@ def draw_board(stdscr):
             # # Eagle
             # elif x == game_data['eagle_pos']['x'] and y == game_data['eagle_pos']['y']:
             #     row += game_data['eagle_icon']
-            # # Obstacles
-            # elif any(o['x'] == x and o['y'] == y for o in game_data['obstacles']):
-            #     row += game_data['obstacle']
+             # Obstacles
+             elif any(o['x'] == x and o['y'] == y for o in game_data['obstacles']):
+                 row += game_data['obstacle']
             # Collectibles/ Food
             elif any(c['x'] == x and c['y'] == y and not c['collected'] for c in game_data['collectibles']):
                 row += game_data['apple']
