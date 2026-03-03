@@ -17,16 +17,17 @@ game_data = {
     ],
 
     # ASCII icons
-    'turtle': "\U0001F422",# 🐢
-    'eagle_icon': "\U0001F985",# 🦅
+    'snake_head': "\U0001F432",# 🐢
+    'snake_body': "\U0001274E",# 🦅
     'obstacle': "\U0001FAA8 ",# 🪨
-    'leaf': "\U0001F343",# 🍃
+    'apple': "\U0001F34E",# 🍃
+    # snake icons
     'empty': "  "
 }
 
 def display_welcome_screen():
     print(" ")
-    print("Welcome to Turtle Survival!")
+    print("Snake!")
     print(" ")
     print("Use WSAD for movement")
     print("Avoid the hawk")
@@ -38,13 +39,13 @@ def draw_board(stdscr):
         row = ""
         for x in range(game_data['width']):
             if game_data['player']["x"] == x and game_data['player']["y"] == y:
-                row += game_data['turtle']
+                row += game_data['snake_head']
             elif game_data['eagle_pos']["x"] == x and game_data['eagle_pos']["y"] == y:
-                row += game_data['eagle_icon']
+                row += game_data['snake_body']
             elif any(o["x"] == x and o["y"] == y for o in game_data['obstacles']):
                 row += game_data['obstacle']
             elif any(c["x"] == x and c["y"] == y and not c["collected"] for c in game_data['collectibles']):
-                row += game_data['leaf']
+                row += game_data['apple']
             else:
                 row += game_data['empty']
         stdscr.addstr(y, 0, row, curses.color_pair(1))
