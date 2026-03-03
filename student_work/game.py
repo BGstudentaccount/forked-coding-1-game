@@ -8,8 +8,8 @@
 import curses
 
 game_data = {
-    'width': 5,
-    'height': 5,
+    'width': 10,
+    'height': 10,
     'player': {"x": 0, "y": 0, "score": 0, "energy": 10, "max_energy": 10},
     'eagle_pos': {"x": 4, "y": 4},
     'collectibles': [
