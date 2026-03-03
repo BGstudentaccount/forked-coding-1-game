@@ -21,6 +21,11 @@ game_data = {
     ],
 
     # ASCII icons
+    ###Snake code below
+    'snake_head': "\U0001F432",
+    'snake_body': "\U0001274E",
+    'apples': "\U0001F34E",
+    ######Jackson code below
     'turtle': "\U0001F422",
     'eagle_icon': "\U0001F985",
     'obstacle': "\U0001FAA8 ",
