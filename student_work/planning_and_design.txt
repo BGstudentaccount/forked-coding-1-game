@@ -33,5 +33,4 @@ Gameplay Process:
 Game Icons:
 Snake head: "\U0001F432"
 Snake body: "\U000274E"
-Obstacles/rocks: "\U0001FAA8"
 Apples: "\U0001F34E"
