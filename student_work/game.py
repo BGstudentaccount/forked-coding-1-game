@@ -50,7 +50,7 @@ def draw_board(stdscr):
             # elif x == game_data['eagle_pos']['x'] and y == game_data['eagle_pos']['y']:
             #     row += game_data['eagle_icon']
              # Obstacles
-             elif any(o['x'] == x and o['y'] == y for o in game_data['obstacles']):
+            elif any(o['x'] == x and o['y'] == y for o in game_data['obstacles']):
                  row += game_data['obstacle']
             # Collectibles/ Food
             elif any(c['x'] == x and c['y'] == y and not c['collected'] for c in game_data['collectibles']):
