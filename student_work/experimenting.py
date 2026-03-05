@@ -18,7 +18,7 @@ game_data = {
 
     # ASCII icons
     'snake_head': "\U0001F432",# 🐢
-    'snake_body': "\U0001274E",# 🦅
+    'snake_body': "\U0000274E",
     'obstacle': "\U0001FAA8 ",# 🪨
     'apple': "\U0001F34E",# 🍃
     # snake icons
@@ -124,6 +124,17 @@ def move_player(key):
         new_x += 1
     else:
         return False
+    
+   #if key == "w" and py > 0:
+   #    new_y -= 1
+   #elif key == "s" and py < game_data['height'] - 1:
+   #    new_y += 1
+   #elif key == "a" and px > 0:
+   #    new_x -= 1
+   #elif key == "d" and px < game_data['width'] - 1:
+   #    new_x += 1
+   #else:
+   #    return False
 
     # Check obstacle collision
     if any(o["x"] == new_x and o["y"] == new_y for o in game_data['obstacles']):
