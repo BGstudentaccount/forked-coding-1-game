@@ -113,28 +113,17 @@ def move_player(key):
     py = game_data['player']["y"]
 
     new_x, new_y = px, py
-
+    #change these if you want a movement change
     if key == "w" and py > 0:
-        new_y -= 1
+       new_y -= 1
     elif key == "s" and py < game_data['height'] - 1:
-        new_y += 1
+       new_y += 1
     elif key == "a" and px > 0:
-        new_x -= 1
+       new_x -= 1
     elif key == "d" and px < game_data['width'] - 1:
         new_x += 1
     else:
-        return False
-    
-   #if key == "w" and py > 0:
-   #    new_y -= 1
-   #elif key == "s" and py < game_data['height'] - 1:
-   #    new_y += 1
-   #elif key == "a" and px > 0:
-   #    new_x -= 1
-   #elif key == "d" and px < game_data['width'] - 1:
-   #    new_x += 1
-   #else:
-   #    return False
+       return False
 
     # Check obstacle collision
     if any(o["x"] == new_x and o["y"] == new_y for o in game_data['obstacles']):
@@ -206,23 +195,32 @@ def play_game(stdscr):
         if key:
             if key.lower() == "q":
                 break
+            # everything below I put
+            #if key == "w":
+                #new_y -= 1
+            #elif key == "s":
+            #    new_y += 1
+            #elif key == "a":
+            #    new_x -= 1
+            #elif key == "d":
+            #    new_x += 1
+            #everything above I put
 
             moved = move_player(key)
 
-            if moved:
-                check_collectibles()
-                move_eagle()
-                spawn_leaf()
+        check_collectibles()
+        move_eagle()
+        spawn_leaf()
 
-                # Check lose conditions
-                if game_data['player']["energy"] <= 0:
-                    break
+        # Check lose conditions
+        if game_data['player']["energy"] <= 0:
+            break
 
-                if (game_data['player']["x"] == game_data['eagle_pos']["x"] and
-                    game_data['player']["y"] == game_data['eagle_pos']["y"]):
-                    break
+        if (game_data['player']["x"] == game_data['eagle_pos']["x"] and
+            game_data['player']["y"] == game_data['eagle_pos']["y"]):
+            break
 
-                draw_board(stdscr)
+        draw_board(stdscr)
 
         time.sleep(0.1)
 
